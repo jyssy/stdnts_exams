@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# new students rearrangement script version 1
+# new students rearrangement script (version 1)
 
 import pandas as pd
 from datetime import datetime
