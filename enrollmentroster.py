@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# rearranging the 'Enrollment Roster by Program Stack' file from IUIE
+# rearranging the 'Enrollment Roster by Program Stack' file from IE
 
 import csv
 import pandas as pd
