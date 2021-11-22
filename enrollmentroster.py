@@ -38,7 +38,7 @@ enrollment.rename(columns={"Preferred Full Name":"Primary Full Name"}, inplace=T
 enrollment.to_csv('EnrollmentRoster.txt', index=0, sep='\t')
 
 # removing the temp files
-#os.remove('enrollmentroster.csv')
-#os.remove('enrollmentroster.tsv')
+os.remove('enrollmentroster.csv')
+os.remove('enrollmentroster.tsv')
 
 print('Enrollment Roster Text File Made')
