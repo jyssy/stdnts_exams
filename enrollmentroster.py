@@ -34,6 +34,10 @@ enrollment = pd.read_csv(r'enrollmentroster.tsv', sep='\t', converters={'Univers
 # renaming the 'Preferred Full Name' to 'Primary Full Name'
 enrollment.rename(columns={"Preferred Full Name":"Primary Full Name"}, inplace=True)
 
+#regexxing the comma and adding a space 
+enrollment['Instructor Name'] = enrollment['Instructor Name'].str.replace(', *', ', ', regex=True)
+enrollment['Primary Full Name'] = enrollment['Primary Full Name'].str.replace(', *', ', ', regex=True)
+
 # writing the final tsv text document
 enrollment.to_csv('EnrollmentRoster.txt', index=0, sep='\t')
 

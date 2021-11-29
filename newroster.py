@@ -28,6 +28,8 @@ newextractpd = pd.read_csv('newextract.csv', converters={'University ID': lambda
 	'Enrollment Status Code', 'Instructor Name', 'Preferred Full Name']]
 # 'Preferred Full Name' needs to be 'Primary Full Name' in the final document
 newextractpd.rename(columns={"Preferred Full Name":"Primary Full Name"}, inplace=True)
+# adding a space after the comma
+newextractpd['Primary Full Name'] = newextractpd['Primary Full Name'].str.replace(', *', ', ', regex=True)
 # writing all tha data to the XLSX according to the template
 newextractpd.to_excel('NewRosterUpload.xlsx', index=0)
 # removing the temporary csv document
