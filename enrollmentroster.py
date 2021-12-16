@@ -5,6 +5,7 @@
 import csv
 import pandas as pd
 import os
+import re
 
 # opening the original text file and adding the comma separations
 with open('extract_14568132.txt', 'r') as enrollment:
