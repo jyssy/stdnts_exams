@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# new students rearrangement script (version 1) that comes from the New Students access table
+# new students rearrangement script (version 1) that comes from the NewStudents access table and then implements the NewStudents.xlsx template in STS (for uploading)
 
 import pandas as pd
 from datetime import datetime
