@@ -32,8 +32,8 @@ newextractpd.rename(columns={"Preferred Full Name":"Primary Full Name"}, inplace
 newextractpd['Primary Full Name'] = newextractpd['Primary Full Name'].str.replace(', *', ', ', regex=True)
 newextractpd['Instructor Name'] = newextractpd['Instructor Name'].str.replace(', *', ', ', regex=True)
 # writing all tha data to the XLSX according to the template
-datetime = datetime.now().strftime("%Y%m%d")
-newextractpd.to_excel('NewRosterUpload' + '-' + datetime + '-' + termc + '.xlsx', index=0)
+filedate = datetime.now().strftime("%Y%m%d")
+newextractpd.to_excel('NewRosterUpload' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
 # removing the temporary csv document
 os.remove('newextract.csv')
 # final check is a print if all has run as expected
