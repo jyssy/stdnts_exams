@@ -27,8 +27,8 @@ nwstudents = pd.read_csv('newstudentspd.csv', converters={'IUID': lambda x: str(
 	'AKA', 'Sex', 'Birthdate', 'Ethnicity', 'ProgramCode', 'Email']]
 
 # writing the final XLSX with a date-stamped filename
-filename = datetime.now().strftime("%Y%m%d")
-nwstudents.to_excel('NewStudents' + '-' + filename + '-' + term + '.xlsx', index=False)
+filedate = datetime.now().strftime("%Y%m%d")
+nwstudents.to_excel('NewStudents' + '-' + filedate + '-' + term + '.xlsx', index=False)
 # removing the temp file
 os.remove('newstudentspd.csv')
 # printing the final statement that the script ran
