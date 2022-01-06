@@ -7,7 +7,7 @@ import os
 import re
 
 # opening the original extracted text file (renamed with the term added), using regex, and writing that new data to a temp csv file that will be deleted at the end of the script by running os.remove()
-with open('extract_14523301-4218.txt', 'r') as extracted:
+with open('extract_14640404-4222.txt', 'r') as extracted:
 	filetxt = str(extracted)
 	termc = re.findall(r'[0-9]{4}', filetxt)
 	termcode = (termc[2])
@@ -18,7 +18,7 @@ with open('extract_14523301-4218.txt', 'r') as extracted:
 			extractwriter.writerow(line)
 # the csv getting the new column 'Term Code':
 missingtc = pd.read_csv('newextract.csv', dtype = str)
-missingtc['Term Code'] = termcode
+#missingtc['Term Code'] = termcode
 missingtc.to_csv('newextract.csv', index=False)
 # the section in which pandas selects the necessary columns from the csv
 #newextractpd = pd.read_csv('newextract.csv', dtype = str) 

@@ -18,7 +18,7 @@ with open('extract_14640404-4222.txt', 'r') as newgpa:
 		gpawriter = csv.writer(gpaextract, delimiter=',')
 		for line in gpareader:
 			gpawriter.writerow(line)
-# the csv getting the new column 'Term Code':
+# the csv getting the new column 'ExamNumber':
 missingen = pd.read_csv('gpaextract.csv', dtype = str)
 missingen['ExamNumber'] = ""
 missingen.to_csv('gpaextract.csv', index=False)
