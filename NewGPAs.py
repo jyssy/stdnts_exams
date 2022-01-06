@@ -9,7 +9,7 @@ import os
 import re
 
 with open('extract_14640404-4222.txt', 'r') as newgpa:
-# may not need this term code regex at all (also, see line 23)
+# getting term code for the file-naming at the end
 	filetxt = str(newgpa)
 	termc = re.findall(r'[0-9]{4}', filetxt)
 	termcode = (termc[2])
@@ -20,7 +20,6 @@ with open('extract_14640404-4222.txt', 'r') as newgpa:
 			gpawriter.writerow(line)
 # the csv getting the new column 'Term Code':
 missingen = pd.read_csv('gpaextract.csv', dtype = str)
-#missingen['Term Code'] = termcode
 missingen['ExamNumber'] = ""
 missingen.to_csv('gpaextract.csv', index=False)
 # the section in which pandas selects the necessary columns from the csv
