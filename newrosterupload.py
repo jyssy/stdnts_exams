@@ -16,10 +16,6 @@ with open('extract_14640404-4222.txt', 'r') as extracted:
 		extractwriter = csv.writer(newextract, delimiter=',')
 		for line in extractreader:
 			extractwriter.writerow(line)
-# the csv getting the new column 'Term Code':
-missingtc = pd.read_csv('newextract.csv', dtype = str)
-#missingtc['Term Code'] = termcode
-missingtc.to_csv('newextract.csv', index=False)
 # the section in which pandas selects the necessary columns from the csv
 #newextractpd = pd.read_csv('newextract.csv', dtype = str) 
 #OR -- if we apply the dtype=str ONLY to specific columns and not ao ALL the columns as the line does above:
