@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# rearranging the 'Enrollment Roster by Program Stack' file from IE
+# rearranging the 'Enrollment Roster by Program Stack' file from IE for the linked text document in the mdb
 
 import csv
 import pandas as pd
