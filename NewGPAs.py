@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# This script uses the IE data to create GPA and unit rows in the STS so exam numbers can be created later on
+# This script uses the IE data to create GPA and unit rows for the STS so exam numbers can be created later on when the time is right
 
 import csv
 import pandas as pd
