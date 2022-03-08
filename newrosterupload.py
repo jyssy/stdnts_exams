@@ -1,4 +1,4 @@
-# new student rosters script for STS new student upload
+# new student rosters script for STS new student upload at the beginning of each semester
 
 import csv
 import pandas as pd
