@@ -33,6 +33,9 @@ gpaextractpd.rename(columns={"Total Term Units":"TermUnits"}, inplace=True)
 gpaextractpd.rename(columns={"Cumulative GPA":"CumulativeGPA"}, inplace=True)
 gpaextractpd.rename(columns={"Cumulative Units In Progress For GPA":"CumulativeUnits"}, inplace=True)
 
+# replacing the outpout of 0 with the needed 1
+gpaextractpd["TermUnits"].replace(to_replace=0, value=1, inplace=True)
+
 # writing all tha data to the XLSX according to the template
 filedate = datetime.now().strftime("%Y%m%d")
 gpaextractpd.to_excel('NewGPAs' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
