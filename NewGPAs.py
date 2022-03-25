@@ -25,8 +25,7 @@ missingen.to_csv('gpaextract.csv', index=False)
 # the section in which pandas selects the necessary columns from the csv
 #newextractpd = pd.read_csv('newextract.csv', dtype = str) 
 #OR -- if we apply the dtype=str ONLY to specific columns and not ao ALL the columns as the line does above:
-gpaextractpd = pd.read_csv('gpaextract.csv', converters={'University ID': lambda x: str(x)}) [['University ID', 'Term Code', 'Total Term Units', 'ExamNumber',
-	'Cumulative Units In Progress For GPA', 'Cumulative GPA']]
+gpaextractpd = pd.read_csv('gpaextract.csv', converters={'University ID': lambda x: str(x)}) [['University ID', 'Term Code', 'Total Term Units', 'ExamNumber', 'Cumulative GPA', 'Cumulative Units In Progress For GPA']]
 # 'University I' needs to be 'IUID' and 'Term Code' should be ''Term' in the final document
 gpaextractpd.rename(columns={"University ID":"IUID"}, inplace=True)
 gpaextractpd.rename(columns={"Term Code":"Term"}, inplace=True)
