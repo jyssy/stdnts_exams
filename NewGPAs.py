@@ -31,7 +31,7 @@ gpaextractpd.rename(columns={"University ID":"IUID"}, inplace=True)
 gpaextractpd.rename(columns={"Term Code":"Term"}, inplace=True)
 gpaextractpd.rename(columns={"Total Term Units":"TermUnits"}, inplace=True)
 gpaextractpd.rename(columns={"Cumulative GPA":"CumulativeGPA"}, inplace=True)
-gpaextractpd.rename(columns={"Cumulative Units In Progress For GPA":"CumulativeUnits"}, inplace=True)
+gpaextractpd.rename(columns={"Cumulative Units Taken For GPA":"CumulativeUnits"}, inplace=True)
 
 # replacing the outpout of 0 with the needed 1
 gpaextractpd["TermUnits"].replace(to_replace=0, value=1, inplace=True)
