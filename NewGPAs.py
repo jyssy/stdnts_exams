@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # This script uses the IE data to create GPA and unit rows for the STS so exam numbers can be created later on when the time is right
+# being edited to be replaced by a new version (19 may 2022)
 
 import csv
 import pandas as pd
@@ -30,8 +31,11 @@ gpaextractpd = pd.read_csv('gpaextract.csv', converters={'University ID': lambda
 gpaextractpd.rename(columns={"University ID":"IUID"}, inplace=True)
 gpaextractpd.rename(columns={"Term Code":"Term"}, inplace=True)
 gpaextractpd.rename(columns={"Total Term Units":"TermUnits"}, inplace=True)
+# 'TermUnits' is the sSUM of 'Total Term Units' + 'Units in Progress for GPA'
+
 gpaextractpd.rename(columns={"Cumulative GPA":"CumulativeGPA"}, inplace=True)
 gpaextractpd.rename(columns={"Cumulative Units Taken For GPA":"CumulativeUnits"}, inplace=True)
+# CumulativeUnits' is the SUM of 'Total Cumulative Units' + 'Units In Progress Not For GPA'
 
 # replacing the outpout of 0 with the needed 1
 gpaextractpd["TermUnits"].replace(to_replace=0, value=1, inplace=True)
