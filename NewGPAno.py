@@ -14,7 +14,7 @@ missingen = pd.read_csv('gpaextract.csv', dtype = 'str')
 missingen = pd.read_csv('gpaextract.csv', converters={'University ID': lambda x: str(x)})
 
 missingen['TermUnits'] = missingen['Total Term Units'] + missingen['Units In Progress For GPA']
-missingen['CumulativeUnits'] = missingen['Units In Progress For GPA'] + missingen['Total Cumulative Units']
+missingen['CumulativeUnits'] = missingen['Total Cumulative Units'] + missingen['Units In Progress For GPA']
 missingen['ExamNumber'] = ""
 missingen['CumulativeGPA'] = ""
 
