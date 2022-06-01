@@ -9,7 +9,10 @@ from datetime import datetime
 import os
 import re
 
-missingen = pd.read_csv('gpaextract.csv', converters={'University ID': lambda x: str(x)}) 
+# the csv getting the new column 'ExamNumber' as well as doing the SUMS and stringigying 'University ID'
+# missingen = pd.read_csv('gpaextract.csv', dtype = 'str')
+missingen = pd.read_csv('gpaextract.csv', converters={'University ID': lambda x: str(x)})
+
 missingen['TermUnits'] = missingen['Total Term Units'] + missingen['Units In Progress For GPA']
 missingen['CumulativeUnits'] = missingen['Total Cumulative Units'] + missingen['Units In Progress For GPA']
 missingen['ExamNumber'] = ""
@@ -18,8 +21,7 @@ missingen['ExamNumber'] = ""
 missingen.to_csv('gpaextract.csv', index=False)
 
 #opening the CSV and reading all the needed columns
-gpaextractpd = pd.read_csv('gpaextract.csv', converters={'University ID': lambda x: str(x)}) 
-[['University ID', 'Term Code', 'ExamNumber', 'Cumulative GPA', 'TermUnits', 'CumulativeUnits']]
+gpaextractpd = pd.read_csv('gpaextract.csv', converters={'University ID': lambda x: str(x)}) [['University ID', 'Term Code', 'ExamNumber', 'Cumulative GPA', 'TermUnits', 'CumulativeUnits']]
 
 # renaming the three columns that are still with the old name from the IUIE pull
 gpaextractpd.rename(columns={"University ID":"IUID"}, inplace=True)
@@ -28,8 +30,8 @@ gpaextractpd.rename(columns={"Cumulative GPA":"CumulativeGPA"}, inplace=True)
 
 # writing all tha data to the XLSX according to the template
 filedate = datetime.now().strftime("%Y%m%d%H%M")
-gpaextractpd.to_excel('NewGPAs' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
+gpaextractpd.to_excel('NewGPAsyes' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
 # removing the temporary csv document
 os.remove('gpaextract.csv')
 # final check is a print if all has run as expected
-print('newGPAs populated')
+print('newGPAsyes populated')
