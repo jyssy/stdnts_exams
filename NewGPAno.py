@@ -9,8 +9,8 @@ from datetime import datetime
 import os
 import re
 
-# the csv getting the new column 'ExamNumber':
-missingen = pd.read_csv('gpaextract.csv', dtype = 'str')
+# the csv getting the new column 'ExamNumber' + 'CumulativeGPA' as well as doing the SUMS and stringigying 'University ID'
+# missingen = pd.read_csv('gpaextract.csv', dtype = 'str')
 missingen = pd.read_csv('gpaextract.csv', converters={'University ID': lambda x: str(x)})
 
 missingen['TermUnits'] = missingen['Total Term Units'] + missingen['Units In Progress For GPA']
@@ -30,10 +30,10 @@ gpaextractpd.rename(columns={"Term Code":"Term"}, inplace=True)
 
 # writing all tha data to the XLSX according to the template
 filedate = datetime.now().strftime("%Y%m%d%H%M")
-gpaextractpd.to_excel('NewGPAs' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
+gpaextractpd.to_excel('NewGPAsno' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
 # removing the temporary csv document
 os.remove('gpaextract.csv')
 # final check is a print if all has run as expected
-print('newGPAs populated')
+print('newGPAsno populated')
             
 
