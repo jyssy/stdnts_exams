@@ -27,7 +27,7 @@ gpaextractpd.rename(columns={"Term Code":"Term"}, inplace=True)
 gpaextractpd.rename(columns={"Cumulative GPA":"CumulativeGPA"}, inplace=True)
 
 # writing all tha data to the XLSX according to the template
-filedate = datetime.now().strftime("%Y%m%d")
+filedate = datetime.now().strftime("%Y%m%d%H%M")
 gpaextractpd.to_excel('NewGPAs' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
 # removing the temporary csv document
 os.remove('gpaextract.csv')
