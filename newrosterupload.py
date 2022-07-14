@@ -1,4 +1,4 @@
-# new student rosters script for STS new student upload at the beginning of each semester
+# new student rosters script for STS new student upload each semester (usually handled by OSA)
 
 import csv
 import pandas as pd
@@ -7,7 +7,7 @@ import os
 import re
 
 # opening the original extracted text file (renamed with the term added), using regex, and writing that new data to a temp csv file that will be deleted at the end of the script by running os.remove()
-with open('extract_14640404-4222.txt', 'r') as extracted:
+with open('extract_14987005-4228.txt', 'r') as extracted:
 	filetxt = str(extracted)
 	termc = re.findall(r'[0-9]{4}', filetxt)
 	termcode = (termc[2])
