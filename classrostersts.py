@@ -30,11 +30,11 @@ newextractpd['Primary Full Name'] = newextractpd['Primary Full Name'].str.replac
 newextractpd['Instructor Name'] = newextractpd['Instructor Name'].str.replace(', *', ', ', regex=True)
 # writing all tha data to the XLSX according to the template
 filedate = datetime.now().strftime("%Y%m%d")
-newextractpd.to_excel('NewRosterUpload' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
+newextractpd.to_excel('ClassRosterUpload' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
 # removing the temporary csv document
 os.remove('newextract.csv')
 # final check is a print if all has run as expected
-print('roster populated')
+print('Class Roster populated')
 
 
 
