@@ -19,7 +19,7 @@ with open('extract_14987005-4228.txt', 'r') as extracted:
 # the section in which pandas selects the necessary columns from the csv
 #newextractpd = pd.read_csv('newextract.csv', dtype = str) 
 #OR -- if we apply the dtype=str ONLY to specific columns and not ao ALL the columns as the line does above:
-newextractpd = pd.read_csv('newextract.csv', converters={'University ID': lambda x: str(x)}) [['Term Code', 'Units Taken', 'Primary Program Code',
+newextractpd = pd.read_csv('newextract.csv', converters={'University ID': lambda x: str(x)}) [['Term Code',
 	'Units Taken', 'Primary Program Code', 'Class Number', 'Subject Area', 'Course Catalog Number',
 	'Course Description', 'Official Grade', 'University ID',
 	'Enrollment Status Code', 'Instructor Name', 'Preferred Full Name']]
