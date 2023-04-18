@@ -6,16 +6,22 @@ import csv
 import pandas as pd
 import os
 from datetime import datetime
-import re
+# import re
+import glob
 
-# opening the original text file and adding the comma separations
-with open('extract_15410523.txt', 'r') as StXms1:
-	StXms2 = csv.reader(StXms1, delimiter='\t')
-	with open('StXms.csv', 'w') as StXms:
-		StXmswriter = csv.writer(StXms, delimiter=',')
-		for line in StXms2:
-			StXmswriter.writerow(line)
-			
+# Globbing the file extension 
+file_type = ".txt"
+iuieExtract = glob.glob("*" + file_type)
+
+# opening the 'globbed' text file and adding the comma separations
+for file in iuieExtract:	
+	with open(file, 'r') as StXms1:
+		StXms2 = csv.reader(StXms1, delimiter='\t')
+		with open('StXms.csv', 'w') as StXms:
+			StXmswriter = csv.writer(StXms, delimiter=',')
+			for line in StXms2:
+				StXmswriter.writerow(line)
+				
 # making sure to convert data types to strings
 StXms_src = pd.read_csv(r'StXms.csv', dtype=str)
 
