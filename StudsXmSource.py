@@ -40,6 +40,7 @@ print(StXms_src.dtypes)
 # Renaming columns
 StXms_src.rename(columns={"Term Code":"Term"}, inplace=True)
 StXms_src.rename(columns={"University ID":"UniversityID"}, inplace=True)
+StXms_src.rename(columns={"Network ID":"NetworkID"}, inplace=True)
 StXms_src.rename(columns={"Preferred Full Name":"Primary Full Name"}, inplace=True)
 
 # writing the final tsv text document
