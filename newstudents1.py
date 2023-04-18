@@ -6,9 +6,8 @@ import pandas as pd
 from datetime import datetime
 import os
 
-# look into setting up the NewStudents file from PMA to have the TERM in it for this file
 # opens the original file, and populates a variable for the term, and adds the missing columns to the DataFrame - the term will change depending on which term the script is running. Pkus, the file name means nothing. It can be anything. 
-term = '4232'
+term = input('What is the Term Code?')
 nwstudents = pd.read_excel('/Users/jelambe/OneDrive - Indiana University/Documents/NewStudents.xlsx', dtype = str)
 nwstudents.drop(["EmailID"], axis=1, inplace=True)
 # creating the missing columns
