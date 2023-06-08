@@ -27,20 +27,23 @@ for file in iuieExtract:
 # missingen = pd.read_csv('gpaextract.csv', dtype = 'str')
 missingen = pd.read_csv('gpahours.csv', converters={'University ID': lambda x: str(x), 'Term Code': lambda x: str(x)})
 
+# renaming 'Cumu
+
 missingen['TermUnits'] = missingen['Total Term Units'] + missingen['Units In Progress For GPA']
 missingen['CumulativeUnits'] = missingen['Total Cumulative Units'] + missingen['Units In Progress For GPA']
 missingen['ExamNumber'] = ""
-missingen['CumulativeGPA'] = ""
+
 
 # writing this new organization to a CSV
 missingen.to_csv('gpahours2.csv', index=False)
 
 #opening the CSV and reading all the needed columns
-gpahourspd = pd.read_csv('gpahours2.csv', converters={'University ID': lambda x: str(x)}) [['University ID', 'Term Code', 'ExamNumber', 'TermUnits', 'CumulativeGPA', 'CumulativeUnits']]
+gpahourspd = pd.read_csv('gpahours2.csv', converters={'University ID': lambda x: str(x)}) [['University ID', 'Term Code', 'ExamNumber', 'TermUnits', 'Cumulative GPA', 'CumulativeUnits']]
 
 # 'University ID' needs to be 'IUID' and 'Term Code' should be ''Term' in the final document
 gpaextractpd.rename(columns={"University ID":"IUID"}, inplace=True)
 gpaextractpd.rename(columns={"Term Code":"Term"}, inplace=True)
+gpaextractpd.rename(columns={"Cumulative GPA":"CumulativeGPA"}, inplace=True)
 
 # writing all tha data to the XLSX according to the template
 filedate = datetime.now().strftime("%Y%m%d%H%M")
