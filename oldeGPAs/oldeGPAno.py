@@ -39,17 +39,22 @@ missingen.to_csv('gpahours2.csv', index=False)
 gpahourspd = pd.read_csv('gpahours2.csv', converters={'University ID': lambda x: str(x)}) [['University ID', 'Term Code', 'ExamNumber', 'CumulativeGPA', 'TermUnits', 'CumulativeUnits']]
 
 # 'University ID' needs to be 'IUID' and 'Term Code' should be ''Term' in the final document
-gpaextractpd.rename(columns={"University ID":"IUID"}, inplace=True)
-gpaextractpd.rename(columns={"Term Code":"Term"}, inplace=True)
+gpahourspd.rename(columns={"University ID":"IUID"}, inplace=True)
+gpahourspd.rename(columns={"Term Code":"Term"}, inplace=True)
 
 # writing all tha data to the XLSX according to the template
 filedate = datetime.now().strftime("%Y%m%d%H%M")
+
 # termcode = gpahourspd.values['Term']
 termcode = str(gpahourspd.loc[1].Term)
+
 # termcode = '4232'
 gpahourspd.to_excel('NewGPAsno' + '-' + filedate + '-' + termcode + '.xlsx', index=0)
+
 # removing the temporary csv document
+os.remove('gpahours.csv')
 os.remove('gpahours2.csv')
+
 # final check is a print if all has run as expected
 print('newGPAsno populated')
             
