@@ -27,7 +27,7 @@ enrollment.to_csv('enrollmentroster.tsv', index=False, encoding='utf-8', sep='\t
 # selecting the columns from the tsv in order
 #enrollment = pd.read_csv(r'enrollmentroster.tsv', dtype=str, sep='\t')
 # OR ...
-enrollment = pd.read_csv(r'enrollmentroster.tsv', sep='\t', converters={'University ID': lambda x: str(x)}) [['Term Code', 'Class Number', 'Subject Area', 'Course Catalog Number', 'Course Description', 'Units Taken', 
+enrollment = pd.read_csv(r'enrollmentroster.tsv', sep='\t', converters={'University ID': lambda x: str(x)}) [['Class Number', 'Subject Area', 'Course Catalog Number', 'Course Description', 'Units Taken', 
 	'Instructor Name', 'Official Grade', 'University ID', 'Preferred Full Name', 
 	'Total Cumulative Units', 'Primary Program Code', 'Enrollment Status Code', 
 	'Local Address Line 1', 'Local Address Line 2', 'Local Address City', 
