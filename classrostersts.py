@@ -26,12 +26,17 @@ newextractpd = pd.read_csv('newextract.csv', converters={'University ID': lambda
 	'Class Number', 'Subject Area', 'Course Catalog Number',
 	'Course Description', 'Official Grade', 'University ID',
 	'Enrollment Status Code', 'Instructor Name', 'Preferred Full Name']]
+
+# removing lines that contain 'LAW-BE'
+newextractpd = newextractpd[~newextractpd['Subject Area'].str.contains('LAW-BE')].reset_index(drop=True)
+
 # 'Preferred Full Name' needs to be 'Primary Full Name' in the final document
 newextractpd.rename(columns={"Preferred Full Name":"Primary Full Name"}, inplace=True)
 newextractpd.rename(columns={"Term Code":"Term"}, inplace=True)
 # adding a space after the comma
 newextractpd['Primary Full Name'] = newextractpd['Primary Full Name'].str.replace(', *', ', ', regex=True)
-newextractpd['Instructor Name'] = newextractpd['Instructor Name'].str.replace(', *', ', ', regex=True)
+newextractpd['Instructor Name'] = newextractpd['Instructor Name'].str.replace(', *', ', ', regex=True) 
+
 # writing all tha data to the XLSX according to the template
 filedate = datetime.now().strftime("%Y%m%d")
 termcode = str(newextractpd.loc[1].Term)
