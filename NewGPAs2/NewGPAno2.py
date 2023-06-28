@@ -11,7 +11,7 @@ import re
 
 # the csv getting the new column 'ExamNumber' + 'CumulativeGPA' as well as doing the SUMS and stringigying 'University ID'
 # missingen = pd.read_csv('gpaextract.csv', dtype = 'str')
-missingen = pd.read_csv('gpahours.csv', converters={'IUID': lambda x: str(x), 'Term': lambda x: str(x)})
+missingen = pd.read_csv('~/Downloads/gpahours.csv', converters={'IUID': lambda x: str(x), 'Term': lambda x: str(x)})
 
 missingen['TermUnits'] = missingen['Total Term Units'] + missingen['Units In Progress For GPA']
 missingen['CumulativeUnits'] = missingen['Total Cumulative Units'] + missingen['Units In Progress For GPA']
