@@ -33,5 +33,6 @@ filedate = datetime.now().strftime("%Y%m%d")
 nwstudents.to_excel('NewStudents' + '-' + filedate + '-' + term + '.xlsx', index=False)
 # removing the temp file
 os.remove('newstudentspd.csv')
+os.remove('~/Downloads/newstudents.csv')
 # printing the final statement that the script ran
 print('new students populated')
