@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 
-# new students rearrangement script (version 1) that comes from the NewStudents MySQL table - this data then goes into STS
+# new students rearrangement script (version 2) that comes from the NewStudents MySQL table - this data then goes into STS
 
 import pandas as pd
 from datetime import datetime
 import os
 
 # opens the original file, and populates a variable for the term, and adds the missing columns to the DataFrame - the term will change depending on which term the script is running. Pkus, the file name means nothing. It can be anything. 
-term = input('What is the Term Code?')
+term = input('What is the Term Code? ')
 
 # opening the PHPMyAdmin exported CSV file
-nwstudents = pd.read_csv('newstudents.csv')
+nwstudents = pd.read_csv('~/Downloads/newstudents.csv', converters={'IUID': lambda x: str(x)})
 
 # Adding the missing columns
 nwstudents['Term Code'] = term
@@ -34,5 +34,6 @@ nwstudents.to_excel('NewStudents' + '-' + filedate + '-' + term + '.xlsx', index
 # removing the temp file
 os.remove('newstudentspd.csv')
 # os.remove('~/Downloads/newstudents.csv')
+
 # printing the final statement that the script ran
 print('new students populated')
