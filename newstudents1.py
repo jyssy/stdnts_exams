@@ -10,6 +10,7 @@ import os
 term = input('What is the Term Code?')
 nwstudents = pd.read_excel('/Users/jelambe/OneDrive - Indiana University/Documents/NewStudents.xlsx', dtype = str)
 nwstudents.drop(["EmailID"], axis=1, inplace=True)
+
 # creating the missing columns
 nwstudents['Term Code'] = term
 nwstudents['LSAC'] = ''
