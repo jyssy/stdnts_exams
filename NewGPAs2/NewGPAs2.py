@@ -4,7 +4,7 @@
 # Functionally, there are semesters we need the current GPAs and some we don't. Depends on whether the report is run early on the next semester or later on
             
 # setting up the two types of GPA uploads, one w/ GPAs and one w/o GPAs
-yesno = input('Do you want the CumulativeGPA, yes or no?')
+yesno = input('Do you want the CumulativeGPA, yes or no? ')
 
 if yesno == 'yes':
     
